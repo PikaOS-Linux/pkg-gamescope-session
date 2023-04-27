@@ -1,8 +1,0 @@
-#!/bin/bash
-
-set -e
-
-die() { echo >&2 "!! $*"; exit 1; }
-
-systemctl --user stop gamescope-session.service
-

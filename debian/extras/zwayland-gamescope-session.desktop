@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Steam Deck Mode
+Name=Steam Deck Mode (gamescope)
 Comment=Steam Big Picture session
 Exec=gamescope-session
 Type=Application

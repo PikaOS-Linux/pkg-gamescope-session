@@ -1,0 +1,34 @@
+From 9611d3d68b659a1328836f77fc209eb6db534320 Mon Sep 17 00:00:00 2001
+From: GloriousEggroll <gloriouseggroll@gmail.com>
+Date: Wed, 11 Jan 2023 10:08:19 -0700
+Subject: [PATCH] update to work on nobara with hdr
+
+---
+ usr/share/gamescope-session/gamescope-session-script | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/usr/share/gamescope-session/gamescope-session-script b/usr/share/gamescope-session/gamescope-session-script
+index 5c99641..7f3982a 100755
+--- a/usr/share/gamescope-session/gamescope-session-script
++++ b/usr/share/gamescope-session/gamescope-session-script
+@@ -1,4 +1,7 @@
+-#!/bin/bash
++#!/usr/bin/bash
++
++export ENABLE_GAMESCOPE_WSI=1 
++export DXVK_HDR=1
+ 
+ # Fix intel color corruption
+ # might come with some performance degradation but is better than a corrupted
+@@ -169,6 +172,8 @@ if [ -z "$GAMESCOPECMD" ] ; then
+     fi
+     GAMESCOPECMD="/usr/bin/gamescope \
+       $CURSOR \
++      --hdr-enabled \
++      --hdr-itm-enable \
+       -e \
+       $RESOLUTION \
+       --xwayland-count 2 \
+-- 
+2.39.2
+

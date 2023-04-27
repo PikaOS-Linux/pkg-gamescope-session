@@ -7,7 +7,11 @@ add-apt-repository ppa:pikaos/pika
 add-apt-repository ppa:kubuntu-ppa/backports
 
 # Clone Upstream
+git clone https://github.com/KyleGospo/gamescope-session
+cp -rvf ./debian ./gamescope-session
 cd ./gamescope-session
+patch -Np1 -i ./fedora.patch
+patch -Np1 -i ../patches/0001-update-to-work-on-nobara-with-hdr.patch
 
 # Get build deps
 ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
