@@ -1,8 +1,10 @@
 #!/usr/bin/make -f
 
 override_dh_install:
+	dh_install
 	rm -rfv debian/gamescope-session/usr/share/wayland-sessions/gamescope-session.desktop
 	cp -rfv debian/extras/zwayland-gamescope-session.desktop debian/gamescope-session/usr/share/wayland-sessions/
+	cp -rfv debian/extras/gamescope-resolution-configurator debian/gamescope-session/usr/bin/gamescope-resolution-configurator
 
 %:
 	dh $@

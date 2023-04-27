@@ -1,34 +1,42 @@
-From 9611d3d68b659a1328836f77fc209eb6db534320 Mon Sep 17 00:00:00 2001
-From: GloriousEggroll <gloriouseggroll@gmail.com>
-Date: Wed, 11 Jan 2023 10:08:19 -0700
-Subject: [PATCH] update to work on nobara with hdr
-
----
- usr/share/gamescope-session/gamescope-session-script | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/usr/share/gamescope-session/gamescope-session-script b/usr/share/gamescope-session/gamescope-session-script
-index 5c99641..7f3982a 100755
---- a/usr/share/gamescope-session/gamescope-session-script
-+++ b/usr/share/gamescope-session/gamescope-session-script
-@@ -1,4 +1,7 @@
--#!/bin/bash
-+#!/usr/bin/bash
+diff -ru b/gamescope-session-script a/gamescope-session-script
+--- b/gamescope-session-script	2023-04-27 17:22:14.428995862 +0300
++++ a/gamescope-session-script	2023-04-27 17:21:30.549189166 +0300
+@@ -7,6 +7,13 @@
+ export INTEL_DEBUG=norbc
+ export mesa_glthread=true
+ 
++# Set Gamescope args
++export GAMESCOPE_EXTRA_LAUNCH_ARGS='--hdr-enabled --hdr-itm-enable'
++export GAMESCOPE_BASE_LAUNCH_ARGS='--xwayland-count 2 -O *,eDP-1 --default-touch-mode 4 --hide-cursor-delay 3000 --fade-out-duration 200':$GAMESCOPE_EXTRA_LAUNCH_ARGS
 +
 +export ENABLE_GAMESCOPE_WSI=1 
 +export DXVK_HDR=1
++
+ # Some environment variables by default (taken from Deck session)
+ export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
  
- # Fix intel color corruption
- # might come with some performance degradation but is better than a corrupted
-@@ -169,6 +172,8 @@ if [ -z "$GAMESCOPECMD" ] ; then
-     fi
-     GAMESCOPECMD="/usr/bin/gamescope \
-       $CURSOR \
-+      --hdr-enabled \
-+      --hdr-itm-enable \
-       -e \
-       $RESOLUTION \
-       --xwayland-count 2 \
--- 
-2.39.2
-
+@@ -184,22 +191,14 @@
+         $CURSOR \
+         -e \
+         $RESOLUTION \
+-        --xwayland-count 2 \
+-        -O *,eDP-1 \
+-        --default-touch-mode 4 \
+-        --hide-cursor-delay 3000 \
+-        --fade-out-duration 200 \
++        $GAMESCOPE_EXTRA_LAUNCH_ARGS \
+         -R $socket -T $stats"
+      else
+         GAMESCOPECMD="/usr/bin/gamescope \
+         $CURSOR \
+         -e \
+         $RESOLUTION \
+-        --xwayland-count 2 \
+-        -O *,eDP-1 \
+-        --default-touch-mode 4 \
+-        --hide-cursor-delay 3000 \
+-        --fade-out-duration 200 \
++        $GAMESCOPE_EXTRA_LAUNCH_ARGS \
+         --prefer-vk-device $VULKAN_ADAPTER \
+         -R $socket -T $stats"
+      fi
