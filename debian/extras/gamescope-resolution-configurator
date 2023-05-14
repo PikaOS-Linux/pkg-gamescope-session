@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 DEFAULT_RESOLUTION=$(xdpyinfo | awk '/dimensions/{print $2}')
 
 # Steam Deck Default
@@ -75,7 +75,7 @@ if [[ $DEFAULT_RESOLUTION == 2256x1504 ]]; then
 fi
 
 CONFIG=$HOME/.config/environment.d/gamescope-session.conf
-if [ ! -d $HOME/.config/environment.d/ ]; then
+if [ ! -f $CONFIG ]; then
 	echo "Creating $CONFIG"
 	mkdir -p $HOME/.config/environment.d/
 	echo 'SCREEN_WIDTH='$SCREEN_WIDTH > $CONFIG
