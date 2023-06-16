@@ -1,11 +1,5 @@
 DEBIAN_FRONTEND=noninteractive
 
-# Add dependent repositories
-wget -q -O - https://ppa.pika-os.com/key.gpg | sudo apt-key add -
-add-apt-repository https://ppa.pika-os.com
-add-apt-repository ppa:pikaos/pika
-add-apt-repository ppa:kubuntu-ppa/backports
-
 # Clone Upstream
 git clone https://github.com/KyleGospo/gamescope-session
 cp -rvf ./debian ./gamescope-session
@@ -14,7 +8,6 @@ patch -Np1 -i ./fedora.patch
 patch -Np1 -i ../patches/0001-update-to-work-on-nobara-with-hdr.patch
 
 # Get build deps
-ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 apt-get build-dep ./ -y
 
 # Build package
