@@ -9,7 +9,6 @@ Homepage: https://github.com/KyleGospo/gamescope-session
 Package: gamescope-session
 Section: games
 Architecture: all
-Depends: ${misc:Depends}, gamescope, python3
-Multi-Arch: foreign
+Depends: ${misc:Depends}, gamescope, python3, mangoapp, ryzenadj, steamdeck-jupiter-driver-btrfs | steamdeck-jupiter-driver
 Description: Steam Big Picture Mode/Gamemode session based on gamescope
 
