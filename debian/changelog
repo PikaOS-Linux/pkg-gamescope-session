@@ -1,3 +1,9 @@
+gamescope-session (0.2-99pika5-lunar) lunar; urgency=low
+
+  * Fix resolutions
+
+ -- Ward Nakchbandi <hotrod.master@hotmail.com>  Sat, 01 Oct 2022 14:50:00 +0200
+
 gamescope-session (0.2-99pika4-lunar) lunar; urgency=low
 
   * Initial Creation
