@@ -9,6 +9,6 @@ Homepage: https://github.com/PikaOS-linux/gamescope-session
 Package: gamescope-session
 Section: games
 Architecture: all
-Depends: ${misc:Depends}, gamescope, python3, mangoapp, ryzenadj, sdgyrodsu, steamdeck-jupiter-driver-btrfs | steamdeck-jupiter-driver
+Depends: ${misc:Depends}, gamescope, python3, vulkan-tools, mangoapp, ryzenadj, sdgyrodsu, steamdeck-jupiter-driver-btrfs | steamdeck-jupiter-driver
 Description: Steam Big Picture Mode/Gamemode session based on gamescope
 
